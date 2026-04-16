@@ -37,8 +37,10 @@ public class Main extends Application {
 
         boutonAjouter.setOnAction(e -> {
             String titre = champTitre.getText();
-            liste.getItems().add(titre);
-            champTitre.clear();
+            if (!titre.isEmpty()) {      // ← si pas vide
+                liste.getItems().add(titre);
+                champTitre.clear();
+            }
         });
 
         boutonRechercher.setOnAction(e -> {
