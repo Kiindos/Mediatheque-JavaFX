@@ -46,8 +46,11 @@ public class Main extends Application {
         });
 
         boutonRechercher.setOnAction(e -> {
-            // code exécuté au clic
-            System.out.println("Recherche en cours...");
+            String recherche = champTitre.getText();
+            if (!recherche.isEmpty()) {
+                controller.rechercher(recherche);
+                champTitre.clear();
+            }
         });
 
         Scene scene = new Scene(layout, 400, 400);

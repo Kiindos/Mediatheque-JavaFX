@@ -13,4 +13,12 @@ public class MediathequeController {
         this.mediatheque.ajouter(new Livre(titre, "Inconnu", 2024));
         liste.getItems().add(titre);
     }
+
+    public void rechercher(String titre) {
+        Document t = this.mediatheque.chercher(titre);
+        if (t != null) {
+            System.out.println(t.getTitre());
+        }
+        else System.out.println("Document non trouvé");
+    }
 }
