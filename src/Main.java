@@ -24,6 +24,8 @@ public class Main extends Application {
         liste.getItems().add("Dune");
         liste.getItems().add("Inception");
         liste.getItems().add("Random Access Memories");
+        Mediatheque mediatheque = new Mediatheque();
+        MediathequeController controller = new MediathequeController(mediatheque, liste);
 
         HBox boutons = new HBox(10);
         boutons.getChildren().add(boutonAjouter);
@@ -37,8 +39,8 @@ public class Main extends Application {
 
         boutonAjouter.setOnAction(e -> {
             String titre = champTitre.getText();
-            if (!titre.isEmpty()) {      // ← si pas vide
-                liste.getItems().add(titre);
+            if (!titre.isEmpty()) {
+                controller.ajouterDocument(titre);
                 champTitre.clear();
             }
         });
